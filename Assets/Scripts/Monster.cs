@@ -23,5 +23,6 @@ public class Monster : MonoBehaviour
         Vector2 playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
         playerToMonsterVector = this.transform.position - player.transform.position;
         rigibody.AddForce(monsterSpeed * playerToMonsterVector);
+        transform.right = this.transform.position - player.transform.position;
     }
 }
