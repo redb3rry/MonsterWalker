@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 39058274}
   - component: {fileID: 39058273}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad4e768dc1d6c540a27dc22086dc49e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundSpeed: 1
+  backgroundSpeed: 0.4
   backgroundRenderer: {fileID: 39058274}
 --- !u!23 &39058274
 MeshRenderer:
@@ -186,7 +186,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 62aec12d5b7f61f48bda2034583cd4a7, type: 2}
+  - {fileID: 2100000, guid: 1437061f72e0bb042930265f45ba09f9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -644,6 +644,7 @@ MonoBehaviour:
   minX: 1
   maxX: 8
   screenWidthInUnits: 9
+  playerSpeed: 0.2
 --- !u!212 &1678944684
 SpriteRenderer:
   m_ObjectHideFlags: 0

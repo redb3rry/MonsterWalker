@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] float minX = 1f;
     [SerializeField] float maxX = 9f;
     [SerializeField] float screenWidthInUnits = 9f;
+    [SerializeField] float playerSpeed = 1f;
 
     //state
     private Touch touch;
@@ -21,13 +22,27 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        MovePlayer();
+    }
+
+    private void MovePlayer()
+    {
         touch = Input.GetTouch(0);
         playerPos = new Vector2(transform.position.x, transform.position.y);
-        playerPos.x = Mathf.Clamp(GetPositionX(), minX, maxX);
+        if(GetPositionX() > Screen.width / 2)
+        {
+            playerPos.x = Mathf.Clamp(playerPos.x + playerSpeed, minX, maxX);
+        }
+        else if(GetPositionX() < Screen.width / 2)
+        {
+            playerPos.x = Mathf.Clamp(playerPos.x - playerSpeed, minX, maxX);
+        }
+        
         transform.position = playerPos;
     }
+
     private float GetPositionX()
     {
-        return touch.position.x / Screen.width * screenWidthInUnits;
+        return touch.position.x;
     }
 }
