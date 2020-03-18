@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     //config
     [SerializeField] float minX = 1f;
     [SerializeField] float maxX = 9f;
-    [SerializeField] float screenWidthInUnits = 9f;
+    //[SerializeField] float screenWidthInUnits = 9f;
     [SerializeField] float playerSpeed = 1f;
 
     //state
