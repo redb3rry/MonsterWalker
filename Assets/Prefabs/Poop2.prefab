@@ -97,6 +97,8 @@ MonoBehaviour:
   poopSpeed: 0.175
   poopRenderer: {fileID: 184089855447756834}
   poopCollider: {fileID: 202071304}
+  gameLogic: {fileID: 0}
+  damage: 1
 --- !u!60 &202071304
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -153,7 +155,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 9031906429009128380}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
