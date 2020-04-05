@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 3074582495578020154}
   - component: {fileID: 3074582495578020155}
   - component: {fileID: 3074582495578020164}
-  - component: {fileID: 3074582495578020167}
+  - component: {fileID: 997121943}
+  - component: {fileID: 997121942}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3074582495578020152}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.5, y: 5.5, z: 0}
-  m_LocalScale: {x: 1.8, y: 1, z: 1}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: -1882313235
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8efd00f84397fcc42b25eb07b6631c1f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d748091dd778e0a438f980c1af6eb415, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,6 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterSpeed: 2.3
+  maxRotation: 20
+  minRotation: -20
 --- !u!50 &3074582495578020164
 Rigidbody2D:
   serializedVersion: 4
@@ -117,9 +120,9 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &3074582495578020167
-BoxCollider2D:
+  m_Constraints: 4
+--- !u!60 &997121943
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -127,20 +130,143 @@ BoxCollider2D:
   m_GameObject: {fileID: 3074582495578020152}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 74d1dfa966c37ed4994888cf70e632b9, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0005557835, y: -0.0019720793}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.3333334, y: 1.3333334}
+    oldSize: {x: 5.46, y: 8.71}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.3345118, y: 1.335455}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.28, y: -3.595}
+      - {x: 1.3, y: -3.595}
+      - {x: 1.3199999, y: -3.5749998}
+      - {x: 1.5699999, y: -3.485}
+      - {x: 1.5999999, y: -3.345}
+      - {x: 1.8299999, y: -3.355}
+      - {x: 1.9599999, y: -3.225}
+      - {x: 2.1, y: -3.0549998}
+      - {x: 2.36, y: -2.665}
+      - {x: 2.48, y: -2.575}
+      - {x: 2.6299999, y: -2.415}
+      - {x: 2.73, y: -2.175}
+      - {x: 2.73, y: -1.475}
+      - {x: 2.59, y: -1.4549999}
+      - {x: 2.51, y: -1.545}
+      - {x: 2.49, y: -1.185}
+      - {x: 2.32, y: -1.1949999}
+      - {x: 2.11, y: -1.1949999}
+      - {x: 2.1, y: -0.45499998}
+      - {x: 2.08, y: -0.435}
+      - {x: 1.9699999, y: -0.435}
+      - {x: 2.36, y: 0.815}
+      - {x: 2.62, y: 1.0649999}
+      - {x: 2.73, y: 1.275}
+      - {x: 2.73, y: 2.0349998}
+      - {x: 2.59, y: 2.055}
+      - {x: 2.51, y: 1.9649999}
+      - {x: 2.49, y: 2.325}
+      - {x: 2.32, y: 2.315}
+      - {x: 2.24, y: 2.095}
+      - {x: 2.23, y: 2.325}
+      - {x: 2.06, y: 2.315}
+      - {x: 1.79, y: 2.155}
+      - {x: 1.6999999, y: 1.655}
+      - {x: 1.4399999, y: 1.805}
+      - {x: 0.94, y: 1.905}
+      - {x: 1.05, y: 2.105}
+      - {x: 1.31, y: 2.365}
+      - {x: 1.5699999, y: 2.495}
+      - {x: 1.8299999, y: 2.7549999}
+      - {x: 1.9699999, y: 2.925}
+      - {x: 1.99, y: 3.3249998}
+      - {x: 1.8299999, y: 3.475}
+      - {x: 1.43, y: 3.465}
+      - {x: 1.41, y: 3.445}
+      - {x: 1.2099999, y: 3.585}
+      - {x: 1.05, y: 3.735}
+      - {x: 1.1899999, y: 3.965}
+      - {x: 1.2099999, y: 4.235}
+      - {x: 1.0699999, y: 4.355}
+      - {x: 0.76, y: 4.355}
+      - {x: 0.48999998, y: 4.105}
+      - {x: -0.14, y: 4.125}
+      - {x: -0.26999998, y: 4.005}
+      - {x: -0.41, y: 3.865}
+      - {x: -0.41, y: 3.725}
+      - {x: -1.05, y: 3.735}
+      - {x: -1.3299999, y: 3.485}
+      - {x: -1.3199999, y: 3.3149998}
+      - {x: -1.3, y: 3.2949998}
+      - {x: -1.41, y: 3.205}
+      - {x: -1.41, y: 3.445}
+      - {x: -1.43, y: 3.465}
+      - {x: -1.8299999, y: 3.485}
+      - {x: -1.9699999, y: 3.3149998}
+      - {x: -1.9699999, y: 2.925}
+      - {x: -1.9499999, y: 2.905}
+      - {x: -1.86, y: 2.7849998}
+      - {x: -1.61, y: 2.5249999}
+      - {x: -1.31, y: 2.355}
+      - {x: -1.2099999, y: 2.2649999}
+      - {x: -0.95, y: 2.0049999}
+      - {x: -0.95, y: 1.785}
+      - {x: -1.4399999, y: 1.795}
+      - {x: -1.4699999, y: 1.665}
+      - {x: -1.6999999, y: 1.665}
+      - {x: -1.8, y: 1.795}
+      - {x: -2, y: 1.865}
+      - {x: -2.26, y: 1.995}
+      - {x: -2.32, y: 1.935}
+      - {x: -2.49, y: 1.935}
+      - {x: -2.61, y: 1.675}
+      - {x: -2.73, y: 1.645}
+      - {x: -2.73, y: 0.92499995}
+      - {x: -2.61, y: 0.685}
+      - {x: -2.3899999, y: 0.435}
+      - {x: -1.99, y: 0.405}
+      - {x: -2.1, y: -0.45499998}
+      - {x: -2.24, y: -1.7249999}
+      - {x: -2.49, y: -1.7049999}
+      - {x: -2.61, y: -1.9649999}
+      - {x: -2.73, y: -1.995}
+      - {x: -2.73, y: -2.695}
+      - {x: -2.6299999, y: -2.935}
+      - {x: -2.36, y: -3.235}
+      - {x: -2.07, y: -3.225}
+      - {x: -1.3, y: -3.595}
+      - {x: -0.53999996, y: -3.695}
+      - {x: -0.66999996, y: -3.8049998}
+      - {x: -0.69, y: -4.235}
+      - {x: -0.55, y: -4.355}
+      - {x: 0.41, y: -4.355}
+      - {x: 0.53999996, y: -4.225}
+      - {x: 0.56, y: -3.8249998}
+      - {x: 0.39999998, y: -3.665}
+--- !u!95 &997121942
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3074582495578020152}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dfc41f52e9e8c824eb4a7ee1b9f4803b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

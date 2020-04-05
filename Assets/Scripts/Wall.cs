@@ -16,12 +16,6 @@ public class Wall : MonoBehaviour
         if (collision.gameObject == monster)
         {
             monster.SetRunFrom(transform);
-            Wait(impactTime);
-            monster.RunFromPlayer();
         }
-    }
-    private IEnumerator Wait(float time)
-    {
-        yield return new WaitForSeconds(time); 
     }
 }
