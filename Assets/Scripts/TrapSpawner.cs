@@ -25,6 +25,17 @@ public class TrapSpawner : MonoBehaviour
 
     private void SpawnTrap()
     {
-        Instantiate(GetRandomTrap(), new Vector2(GetRandomNumberInRange(minX, maxX), 8f), new Quaternion());
+        GameObject randTrap = GetRandomTrap();
+        if (randTrap.name == "Manhole")
+        {
+            minX = 2f;
+            maxX = 7f;
+        }
+        else
+        {
+            minX = 1f;
+            maxX = 8f;
+        }
+        Instantiate(randTrap, new Vector2(GetRandomNumberInRange(minX, maxX), 8f), new Quaternion());
     }
 }

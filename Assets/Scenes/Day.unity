@@ -714,11 +714,6 @@ PrefabInstance:
       propertyPath: gameLogic
       value: 
       objectReference: {fileID: 871111188}
-    - target: {fileID: 116523248220286793, guid: c94df73be8104bf468e7803d3594cd61,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 116523248220286794, guid: c94df73be8104bf468e7803d3594cd61,
         type: 3}
       propertyPath: m_Name

@@ -158,7 +158,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5945817873669883103}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.26, y: -9.03, z: 0}
+  m_LocalPosition: {x: 1.26, y: -11.23, z: 0}
   m_LocalScale: {x: 10.2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5945817873531774492}
@@ -307,7 +307,7 @@ MonoBehaviour:
   traps:
   - {fileID: 9031906429009128380, guid: a8648c2af07998543b503c00e24a1f37, type: 3}
   - {fileID: 116523248220286794, guid: c94df73be8104bf468e7803d3594cd61, type: 3}
-  timeBetweenTraps: 5
+  timeBetweenTraps: 4
 --- !u!1 &5945817874321200816
 GameObject:
   m_ObjectHideFlags: 0
