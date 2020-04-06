@@ -16,6 +16,7 @@ public class PoopScroll : MonoBehaviour
     }
     void Update()
     {
+        poopSpeed = poopSpeed * gameLogic.scrollingSpeedMod;
         poopRenderer.material.mainTextureOffset += new Vector2(0f, poopSpeed * Time.deltaTime);
         poopCollider.offset -= new Vector2(0f, poopSpeed * Time.deltaTime);
     }

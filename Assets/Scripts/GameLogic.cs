@@ -12,6 +12,7 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private Image image;
     private float timer;
     [SerializeField] private SceneLoader sceneLoader;
+    [SerializeField] public float scrollingSpeedMod = 1f;
 
     void Update()
     {
@@ -20,12 +21,11 @@ public class GameLogic : MonoBehaviour
     }
     public void UpdateLives(int livesLost)
     {
-        if (lives == 0)
+        lives -= livesLost;
+        image.sprite = lifeSprites[Mathf.Clamp(lives,0,3)];
+        if (lives < 0)
         {
             sceneLoader.LoadNextScene();
         }
-
-        lives -= livesLost;
-        image.sprite = lifeSprites[lives];
     }
 }
