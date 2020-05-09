@@ -8,29 +8,31 @@ public class GameLogic : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI gameScoreText;
     [SerializeField] private TextMeshProUGUI endScoreText;
+    [SerializeField] private TextMeshProUGUI highscoreText;
     [SerializeField] private Sprite[] lifeSprites;
-    [SerializeField] private int lives = 3; //TODO unserialize
     [SerializeField] private Image image;
     [SerializeField] private SceneLoader sceneLoader;
     [SerializeField] public float scrollingSpeedMod = 1f;
+    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private int timeElapsed = 0;
+    [SerializeField] TrapSpawner ts;
+    private int lives = 3;
     private float timer;
     public List<Scrolling> scrollingObjects = new List<Scrolling>();
     public bool gameRunnning = true;
     private Player player;
     private Monster monster;
-    private Canvas gameCanvas;
-    [SerializeField] private GameObject gameOverPanel;
-    [SerializeField] private GameObject pausePanel;
-    [SerializeField] private int timeElapsed = 0;
-    [SerializeField] TrapSpawner ts;
+    private int highscore;
+    private int points;
 
     private void Start()
     {
         player = FindObjectOfType<Player>();
         monster = FindObjectOfType<Monster>();
-        gameCanvas = FindObjectOfType<Canvas>();
         gameOverPanel.SetActive(false);
         pausePanel.SetActive(false);
+        highscore = PlayerPrefs.GetInt("highscore",0);
     }
     void Update()
     {
@@ -59,8 +61,8 @@ public class GameLogic : MonoBehaviour
     private void CountTime()
     {
         timer += 1 * Time.deltaTime;
-        int points = Mathf.RoundToInt(timer);
-        gameScoreText.text = points.ToString("n0");
+        points = Mathf.RoundToInt(timer);
+        gameScoreText.text = points.ToString();
         if(timer/10 > timeElapsed)
         {
             timeElapsed++;
@@ -90,7 +92,17 @@ public class GameLogic : MonoBehaviour
         player.StopPlayer();
         monster.StopMonster();
         ChangeSpeed();
+        if(points > highscore)
+        {
+            PlayerPrefs.SetInt("highscore", points);
+            highscoreText.text = "New highscore!";
+        }
+        else
+        {
+            highscoreText.text = "";
+        }
         endScoreText.text = "Score\n" + timer.ToString("n0");
+        PlayerPrefs.SetInt("lastScore", points);
         gameOverPanel.SetActive(true);
     }
 
