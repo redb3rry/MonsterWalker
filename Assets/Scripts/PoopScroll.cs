@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoopScroll : MonoBehaviour
+public class PoopScroll : MonoBehaviour, Scrolling
 {
     [SerializeField] public float poopSpeed;
     [SerializeField] private Renderer poopRenderer;
@@ -13,13 +13,20 @@ public class PoopScroll : MonoBehaviour
     private void Start()
     {
         gameLogic = FindObjectOfType<GameLogic>();
+        gameLogic.scrollingObjects.Add(this);
+        ApplySpeedMod();
     }
     void Update()
     {
-        poopSpeed = poopSpeed * gameLogic.scrollingSpeedMod;
         poopRenderer.material.mainTextureOffset += new Vector2(0f, poopSpeed * Time.deltaTime);
         poopCollider.offset -= new Vector2(0f, poopSpeed * Time.deltaTime);
     }
+
+    public void ApplySpeedMod()
+    {
+        poopSpeed = poopSpeed * gameLogic.scrollingSpeedMod;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Player" || collision.gameObject.name == "Monster")

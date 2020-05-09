@@ -6,24 +6,31 @@ public class Monster : MonoBehaviour
 {
     //config
     [SerializeField] float monsterSpeed = 1f;
-    [SerializeField] float maxRotation = 30f;
-    [SerializeField] float minRotation = -30f;
     //references
     Player player;
     Transform runFrom;
+    private GameLogic gameLogic;
+    private Animator monsterAnim;
+    private Rigidbody2D monsterRigibody;
     //states
     Vector2 targetToMonsterVector;
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<Player>();
+        gameLogic = FindObjectOfType<GameLogic>();
+        monsterAnim = GetComponent<Animator>();
+        monsterRigibody = GetComponent<Rigidbody2D>();
         RunFromPlayer();
     }
 
     // Update is called once per frame
     void Update()
     {
-        RunAwayFrom(runFrom);
+        if (gameLogic.gameRunnning)
+        {
+            RunAwayFrom(runFrom);
+        }
     }
     private void RunAwayFrom(Transform target)
     {
@@ -40,5 +47,10 @@ public class Monster : MonoBehaviour
     public void RunFromPlayer()
     {
         runFrom = player.transform;
+    }
+    public void StopMonster()
+    {
+        monsterAnim.SetBool("gameRunning", false);
+        monsterRigibody.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 }

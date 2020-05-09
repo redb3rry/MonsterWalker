@@ -7,12 +7,21 @@ public class TrapSpawner : MonoBehaviour
     [SerializeField] float minX = 1f;
     [SerializeField] float maxX = 8f;
     [SerializeField] GameObject[] traps;
-    [SerializeField] float timeBetweenTraps= 5f;
+    public float timeBetweenTraps= 5f;
     void Start()
     {
-        InvokeRepeating("SpawnTrap", 3f, timeBetweenTraps);
+        StartSpawning();
     }
 
+    public void StartSpawning()
+    {
+        InvokeRepeating("SpawnTrap", 2f, timeBetweenTraps);
+    }
+
+    public void StopSpawning()
+    {
+        CancelInvoke();
+    }
     private GameObject GetRandomTrap()
     {
         return traps[UnityEngine.Random.Range(0, traps.Length)];

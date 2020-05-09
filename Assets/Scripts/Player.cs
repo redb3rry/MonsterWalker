@@ -7,8 +7,9 @@ public class Player : MonoBehaviour
     //config
     [SerializeField] float minX = 1f;
     [SerializeField] float maxX = 9f;
-    //[SerializeField] float screenWidthInUnits = 9f;
     [SerializeField] float playerSpeed = 1f;
+    private GameLogic gameLogic;
+    private Animator playerAnim;
 
     //state
     private Touch touch;
@@ -16,13 +17,17 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameLogic = FindObjectOfType<GameLogic>();
+        playerAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        MovePlayer();
+        if (gameLogic.gameRunnning)
+        {
+            MovePlayer();
+        }
     }
 
     private void MovePlayer()
@@ -40,7 +45,10 @@ public class Player : MonoBehaviour
         
         transform.position = playerPos;
     }
-
+    public void StopPlayer()
+    {
+        playerAnim.SetBool("gameRunning", false);
+    }
     private float GetPositionX()
     {
         return touch.position.x;
