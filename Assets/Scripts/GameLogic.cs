@@ -9,6 +9,7 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gameScoreText;
     [SerializeField] private TextMeshProUGUI endScoreText;
     [SerializeField] private TextMeshProUGUI highscoreText;
+    [SerializeField] private TextMeshProUGUI coinText;
     [SerializeField] private Sprite[] lifeSprites;
     [SerializeField] private Image image;
     [SerializeField] private SceneLoader sceneLoader;
@@ -25,6 +26,7 @@ public class GameLogic : MonoBehaviour
     private Monster monster;
     private int highscore;
     private int points;
+    private int coins = 0;
 
     private void Start()
     {
@@ -61,12 +63,12 @@ public class GameLogic : MonoBehaviour
     private void CountTime()
     {
         timer += 1 * Time.deltaTime;
-        points = Mathf.RoundToInt(timer);
+        points = Mathf.RoundToInt(timer) + 10*coins;
         gameScoreText.text = points.ToString();
         if(timer/10 > timeElapsed)
         {
             timeElapsed++;
-            ts.timeBetweenTraps = Mathf.Clamp(ts.timeBetweenTraps - 0.2f,0.01f,10f);
+            ts.timeBetweenTraps = Mathf.Clamp(ts.timeBetweenTraps - 0.35f,0.01f,10f);
             ts.StopSpawning();
             ts.StartSpawning();
         }
@@ -101,7 +103,7 @@ public class GameLogic : MonoBehaviour
         {
             highscoreText.text = "";
         }
-        endScoreText.text = "Score\n" + timer.ToString("n0");
+        endScoreText.text = "Score\n" + points.ToString();
         PlayerPrefs.SetInt("lastScore", points);
         gameOverPanel.SetActive(true);
     }
@@ -112,5 +114,10 @@ public class GameLogic : MonoBehaviour
         {
             obj.ApplySpeedMod();
         }
+    }
+    public void AddCoin()
+    {
+        coins++;
+        coinText.text = coins.ToString();
     }
 }

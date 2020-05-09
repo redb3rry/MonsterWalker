@@ -7,6 +7,7 @@ public class TrapSpawner : MonoBehaviour
     [SerializeField] float minX = 1f;
     [SerializeField] float maxX = 8f;
     [SerializeField] GameObject[] traps;
+    [SerializeField] GameObject coin;
     public float timeBetweenTraps= 5f;
     void Start()
     {
@@ -16,6 +17,7 @@ public class TrapSpawner : MonoBehaviour
     public void StartSpawning()
     {
         InvokeRepeating("SpawnTrap", 2f, timeBetweenTraps);
+        InvokeRepeating("SpawnCoin", 3.5f, 5f);
     }
 
     public void StopSpawning()
@@ -46,5 +48,12 @@ public class TrapSpawner : MonoBehaviour
             maxX = 8f;
         }
         Instantiate(randTrap, new Vector2(GetRandomNumberInRange(minX, maxX), 8f), new Quaternion());
+    }
+    private void SpawnCoin()
+    {
+
+        minX = 1f;
+        maxX = 8f;
+        Instantiate(coin, new Vector2(GetRandomNumberInRange(minX, maxX), 8f), new Quaternion());
     }
 }
