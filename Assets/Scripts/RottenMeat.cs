@@ -7,7 +7,7 @@ public class RottenMeat : MonoBehaviour
     [SerializeField] private Renderer meatRenderer;
     [SerializeField] private Collider2D meatCollider;
     [SerializeField] private GameLogic gameLogic;
-    [SerializeField] private int damage = 4;
+    [SerializeField] private int damage = 2;
 
     private void Start()
     {

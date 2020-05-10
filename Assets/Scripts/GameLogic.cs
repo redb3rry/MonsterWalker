@@ -14,6 +14,7 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private Image image;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject tutorialPanel;
     [SerializeField] private int timeElapsed = 0;
     [SerializeField] TrapSpawner ts;
     public float gameSpeed = 0.175f;
@@ -28,6 +29,8 @@ public class GameLogic : MonoBehaviour
 
     private void Start()
     {
+        tutorialPanel.SetActive(true);
+        Time.timeScale = 0f;
         player = FindObjectOfType<Player>();
         monster = FindObjectOfType<Monster>();
         gameOverPanel.SetActive(false);
@@ -67,8 +70,8 @@ public class GameLogic : MonoBehaviour
         if(timer/10 > timeElapsed)
         {
             timeElapsed++;
-            ts.timeBetweenTraps = Mathf.Clamp(ts.timeBetweenTraps - 0.5f,0.01f,10f);
-            gameSpeed += 0.01f;
+            ts.timeBetweenTraps = Mathf.Clamp(ts.timeBetweenTraps - 0.25f,0.5f,10f);
+            gameSpeed += 0.03f;
             ts.StopSpawning();
             ts.StartSpawning();
         }
@@ -109,5 +112,11 @@ public class GameLogic : MonoBehaviour
     {
         coins++;
         coinText.text = coins.ToString();
+    }
+
+    public void CloseTutorial()
+    {
+        tutorialPanel.SetActive(false);
+        Time.timeScale = 1f;
     }
 }

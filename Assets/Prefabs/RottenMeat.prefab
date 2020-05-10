@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5376996093314967035}
   - component: {fileID: 6788164376544109701}
   - component: {fileID: 4113990082690691722}
+  - component: {fileID: 6198928374343135816}
   m_Layer: 0
   m_Name: RottenMeat
   m_TagString: Untagged
@@ -129,8 +130,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d583a9db8213f4d801af3014398192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meatSpeed: 0.175
   meatRenderer: {fileID: 5376996093314967035}
   meatCollider: {fileID: 6788164376544109701}
   gameLogic: {fileID: 0}
   damage: 4
+--- !u!50 &6198928374343135816
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2311685884081759354}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

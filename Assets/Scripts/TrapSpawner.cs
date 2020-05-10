@@ -8,7 +8,8 @@ public class TrapSpawner : MonoBehaviour
     [SerializeField] float maxX = 8f;
     [SerializeField] GameObject[] traps;
     [SerializeField] GameObject coin;
-    public float timeBetweenTraps= 5f;
+    public float timeBetweenTraps= 3f;
+    private bool lastManhole, lastMeat;
     void Start()
     {
         StartSpawning();
@@ -16,7 +17,7 @@ public class TrapSpawner : MonoBehaviour
 
     public void StartSpawning()
     {
-        InvokeRepeating("SpawnTrap", 2f, timeBetweenTraps);
+        InvokeRepeating("SpawnTrap", 1f, timeBetweenTraps);
         InvokeRepeating("SpawnCoin", 3.5f, 5f);
     }
 
@@ -39,8 +40,31 @@ public class TrapSpawner : MonoBehaviour
         GameObject randTrap = GetRandomTrap();
         if (randTrap.name == "Manhole")
         {
-            minX = 2f;
-            maxX = 7f;
+            minX = 2.25f;
+            maxX = 6.75f;
+            if (lastManhole)
+            {
+                randTrap = traps[0];
+                lastManhole = false;
+            }
+            else
+            {
+                lastManhole = true;
+            }
+        }
+        else if(randTrap.name == "RottenMeat")
+        {
+            minX = 1f;
+            maxX = 8f;
+            if (lastMeat)
+            {
+                randTrap = traps[0];
+                lastMeat = false;
+            }
+            else
+            {
+                lastMeat = true;
+            }
         }
         else
         {

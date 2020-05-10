@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameLogic.gameRunnning)
+        if (gameLogic.gameRunnning && Time.timeScale != 0f)
         {
             MovePlayer();
         }
