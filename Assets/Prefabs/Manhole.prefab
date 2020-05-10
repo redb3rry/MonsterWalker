@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 116523248220286794}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3, y: 2.72, z: 0}
-  m_LocalScale: {x: 2, y: 40, z: 1}
+  m_LocalScale: {x: 2, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -129,16 +129,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.46572793, y: 0.4894227}
+    - - {x: 0.41395712, y: 0.485281}
       - {x: 0.25607717, y: 0.5000281}
       - {x: 0.004090786, y: 0.50040907}
       - {x: -0.25569117, y: 0.50030273}
-      - {x: -0.49838805, y: 0.48844266}
-      - {x: -0.5024849, y: 0.4621399}
-      - {x: -0.24553752, y: 0.4494028}
-      - {x: 0.24827528, y: 0.44941503}
-      - {x: 0.4980688, y: 0.46256453}
-      - {x: 0.49893355, y: 0.48744637}
+      - {x: -0.5139191, y: 0.47498235}
+      - {x: -0.5024848, y: 0.41709957}
+      - {x: -0.24553752, y: 0.3903845}
+      - {x: 0.25862956, y: 0.39091435}
+      - {x: 0.4980688, y: 0.4170064}
+      - {x: 0.5196419, y: 0.47191525}
 --- !u!114 &116523248220286792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a1fa50b07cc110448143221bb7d8042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manholeSpeed: 0.087
+  manholeSpeed: 0.175
   manholeRenderer: {fileID: 116523248220286799}
   manholeCollider: {fileID: 116523248220286793}
   gameLogic: {fileID: 0}

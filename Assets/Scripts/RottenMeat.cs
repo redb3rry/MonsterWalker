@@ -2,26 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class RottenMeat : MonoBehaviour
 {
-    [SerializeField] private Renderer coinRenderer;
-    [SerializeField] private Collider2D coinCollider;
+    [SerializeField] private Renderer meatRenderer;
+    [SerializeField] private Collider2D meatCollider;
     [SerializeField] private GameLogic gameLogic;
-    void Start()
+    [SerializeField] private int damage = 4;
+
+    private void Start()
     {
         gameLogic = FindObjectOfType<GameLogic>();
     }
-
     void Update()
     {
-        coinRenderer.material.mainTextureOffset += new Vector2(0f, gameLogic.gameSpeed * Time.deltaTime);
-        coinCollider.offset -= new Vector2(0f, gameLogic.gameSpeed * Time.deltaTime);
+        meatRenderer.material.mainTextureOffset += new Vector2(0f, gameLogic.gameSpeed * Time.deltaTime);
+        meatCollider.offset -= new Vector2(0f, gameLogic.gameSpeed * Time.deltaTime);
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Monster")
         {
-            gameLogic.AddCoin();
+            gameLogic.UpdateLives(damage);
         }
         if (collision.gameObject.name == "Monster")
         {

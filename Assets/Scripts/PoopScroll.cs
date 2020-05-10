@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoopScroll : MonoBehaviour, Scrolling
+public class PoopScroll : MonoBehaviour
 {
-    [SerializeField] public float poopSpeed;
     [SerializeField] private Renderer poopRenderer;
     [SerializeField] private Collider2D poopCollider;
     [SerializeField] private GameLogic gameLogic;
@@ -13,27 +12,20 @@ public class PoopScroll : MonoBehaviour, Scrolling
     private void Start()
     {
         gameLogic = FindObjectOfType<GameLogic>();
-        gameLogic.scrollingObjects.Add(this);
-        ApplySpeedMod();
     }
     void Update()
     {
-        poopRenderer.material.mainTextureOffset += new Vector2(0f, poopSpeed * Time.deltaTime);
-        poopCollider.offset -= new Vector2(0f, poopSpeed * Time.deltaTime);
-    }
-
-    public void ApplySpeedMod()
-    {
-        poopSpeed = poopSpeed * gameLogic.scrollingSpeedMod;
+        poopRenderer.material.mainTextureOffset += new Vector2(0f, gameLogic.gameSpeed * Time.deltaTime);
+        poopCollider.offset -= new Vector2(0f, gameLogic.gameSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Player" || collision.gameObject.name == "Monster")
+        if (collision.gameObject.name == "Player")
         {
             gameLogic.UpdateLives(damage);
         }
-        if (collision.gameObject.name == "Player" || collision.gameObject.name == "Monster")
+        if (collision.gameObject.name == "Player")
         {
             Destroy(gameObject);
         }

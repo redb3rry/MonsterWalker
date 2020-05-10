@@ -12,15 +12,13 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private TextMeshProUGUI coinText;
     [SerializeField] private Sprite[] lifeSprites;
     [SerializeField] private Image image;
-    [SerializeField] private SceneLoader sceneLoader;
-    [SerializeField] public float scrollingSpeedMod = 1f;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private int timeElapsed = 0;
     [SerializeField] TrapSpawner ts;
+    public float gameSpeed = 0.175f;
     private int lives = 3;
     private float timer;
-    public List<Scrolling> scrollingObjects = new List<Scrolling>();
     public bool gameRunnning = true;
     private Player player;
     private Monster monster;
@@ -35,6 +33,7 @@ public class GameLogic : MonoBehaviour
         gameOverPanel.SetActive(false);
         pausePanel.SetActive(false);
         highscore = PlayerPrefs.GetInt("highscore",0);
+        gameSpeed = 0.165f;
     }
     void Update()
     {
@@ -64,11 +63,12 @@ public class GameLogic : MonoBehaviour
     {
         timer += 1 * Time.deltaTime;
         points = Mathf.RoundToInt(timer) + 10*coins;
-        gameScoreText.text = points.ToString();
+        gameScoreText.text = Mathf.RoundToInt(timer).ToString() +"m";
         if(timer/10 > timeElapsed)
         {
             timeElapsed++;
-            ts.timeBetweenTraps = Mathf.Clamp(ts.timeBetweenTraps - 0.35f,0.01f,10f);
+            ts.timeBetweenTraps = Mathf.Clamp(ts.timeBetweenTraps - 0.5f,0.01f,10f);
+            gameSpeed += 0.01f;
             ts.StopSpawning();
             ts.StartSpawning();
         }
@@ -87,13 +87,11 @@ public class GameLogic : MonoBehaviour
     private void StopGame()
     {
         gameRunnning = false;
-        scrollingSpeedMod = 0f;
-        //sceneLoader.LoadNextScene();
+        gameSpeed = 0f;
         ts = FindObjectOfType<TrapSpawner>();
         ts.StopSpawning();
         player.StopPlayer();
         monster.StopMonster();
-        ChangeSpeed();
         if(points > highscore)
         {
             PlayerPrefs.SetInt("highscore", points);
@@ -106,14 +104,6 @@ public class GameLogic : MonoBehaviour
         endScoreText.text = "Score\n" + points.ToString();
         PlayerPrefs.SetInt("lastScore", points);
         gameOverPanel.SetActive(true);
-    }
-
-    private void ChangeSpeed()
-    {
-        foreach (Scrolling obj in scrollingObjects)
-        {
-            obj.ApplySpeedMod();
-        }
     }
     public void AddCoin()
     {

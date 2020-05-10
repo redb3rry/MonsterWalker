@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5945817873531774492}
+  - component: {fileID: 973243028}
   m_Layer: 0
   m_Name: GameSpace
   m_TagString: Untagged
@@ -37,6 +38,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &973243028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5945817873531774493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffa5f60785f038346a8519581f6b4475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leashOn: 0
+  leashLength: 4
 --- !u!1 &5945817873576993608
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,7 +80,7 @@ Transform:
   m_GameObject: {fileID: 5945817873576993608}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.24, y: 0.28, z: 10}
-  m_LocalScale: {x: 9.16176, y: 17.57997, z: 4.4048}
+  m_LocalScale: {x: 9, y: 20, z: 4.4048}
   m_Children: []
   m_Father: {fileID: 5945817873531774492}
   m_RootOrder: 2
@@ -129,7 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad4e768dc1d6c540a27dc22086dc49e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundSpeed: 0.2
   backgroundRenderer: {fileID: 5945817873576993653}
   gameLogic: {fileID: 0}
 --- !u!1 &5945817873669883103
@@ -306,8 +320,13 @@ MonoBehaviour:
   maxX: 8
   traps:
   - {fileID: 9031906429009128380, guid: a8648c2af07998543b503c00e24a1f37, type: 3}
+  - {fileID: 9031906429009128380, guid: a8648c2af07998543b503c00e24a1f37, type: 3}
+  - {fileID: 9031906429009128380, guid: a8648c2af07998543b503c00e24a1f37, type: 3}
   - {fileID: 116523248220286794, guid: c94df73be8104bf468e7803d3594cd61, type: 3}
-  timeBetweenTraps: 4
+  - {fileID: 116523248220286794, guid: c94df73be8104bf468e7803d3594cd61, type: 3}
+  - {fileID: 2311685884081759354, guid: 9bd27dc72d641ab4fb90f8ca88d0d765, type: 3}
+  coin: {fileID: 8176337404876230421, guid: cba519bee8a3b4645859036192c7d441, type: 3}
+  timeBetweenTraps: 5
 --- !u!1 &5945817874321200816
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,8 +397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b550655100d87429efed44e553056b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monster: {fileID: 0}
-  impactTime: 2
 --- !u!1 &5945817874651637526
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,5 +524,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b550655100d87429efed44e553056b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monster: {fileID: 0}
-  impactTime: 2
