@@ -7,7 +7,8 @@ public class Player : MonoBehaviour
     //config
     [SerializeField] float minX = 1f;
     [SerializeField] float maxX = 9f;
-    [SerializeField] float playerSpeed = 1f;
+    [SerializeField] float playerSpeed = 0.3f;
+    private float screenWidthInUnits = 8f;
     private GameLogic gameLogic;
     private Animator playerAnim;
 
@@ -34,15 +35,16 @@ public class Player : MonoBehaviour
     {
         touch = Input.GetTouch(0);
         playerPos = new Vector2(transform.position.x, transform.position.y);
-        if(GetPositionX() > Screen.width / 2)
-        {
-            playerPos.x = Mathf.Clamp(playerPos.x + playerSpeed, minX, maxX);
-        }
-        else if(GetPositionX() < Screen.width / 2)
-        {
-            playerPos.x = Mathf.Clamp(playerPos.x - playerSpeed, minX, maxX);
-        }
-        
+        //if(GetPositionX() > Screen.width / 2)
+        //{
+        //    playerPos.x = Mathf.Clamp(playerPos.x + playerSpeed, minX, maxX);
+        //}
+        //else if(GetPositionX() < Screen.width / 2)
+        //{
+        //    playerPos.x = Mathf.Clamp(playerPos.x - playerSpeed, minX, maxX);
+        //}
+        playerPos.x = Mathf.Clamp(Mathf.Clamp(GetPositionX(), playerPos.x - playerSpeed, playerPos.x + playerSpeed), minX, maxX);
+
         transform.position = playerPos;
     }
     public void StopPlayer()
@@ -51,6 +53,6 @@ public class Player : MonoBehaviour
     }
     private float GetPositionX()
     {
-        return touch.position.x;
+        return touch.position.x / Screen.width * screenWidthInUnits;
     }
 }

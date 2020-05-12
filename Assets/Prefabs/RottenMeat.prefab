@@ -133,7 +133,7 @@ MonoBehaviour:
   meatRenderer: {fileID: 5376996093314967035}
   meatCollider: {fileID: 6788164376544109701}
   gameLogic: {fileID: 0}
-  damage: 4
+  damage: 2
 --- !u!50 &6198928374343135816
 Rigidbody2D:
   serializedVersion: 4

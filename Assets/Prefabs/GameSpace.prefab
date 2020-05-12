@@ -241,7 +241,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5945817873678786882}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.27, y: -5.14, z: -3.0976315}
+  m_LocalPosition: {x: 1.27, y: -3.84, z: -3.0976315}
   m_LocalScale: {x: 13.462, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5945817873531774492}
@@ -325,7 +325,6 @@ MonoBehaviour:
   - {fileID: 116523248220286794, guid: c94df73be8104bf468e7803d3594cd61, type: 3}
   - {fileID: 116523248220286794, guid: c94df73be8104bf468e7803d3594cd61, type: 3}
   - {fileID: 2311685884081759354, guid: 9bd27dc72d641ab4fb90f8ca88d0d765, type: 3}
-  - {fileID: 9031906429009128380, guid: a8648c2af07998543b503c00e24a1f37, type: 3}
   coin: {fileID: 8176337404876230421, guid: cba519bee8a3b4645859036192c7d441, type: 3}
   timeBetweenTraps: 3
 --- !u!1 &5945817874321200816
@@ -423,7 +422,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5945817874651637526}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.27, y: 0.41, z: -3.0976315}
+  m_LocalPosition: {x: 1.27, y: 1.71, z: -3.0976315}
   m_LocalScale: {x: 13.462, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5945817873531774492}
