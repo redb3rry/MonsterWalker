@@ -14,4 +14,8 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+    void OnApplicationQuit()
+    {
+        PlayerPrefs.SetInt("FirstGame", 0);
+    }
 }

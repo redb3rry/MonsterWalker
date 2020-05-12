@@ -26,11 +26,19 @@ public class GameLogic : MonoBehaviour
     private int highscore;
     private int points;
     private int coins = 0;
+    [SerializeField] int firstGame;
 
     private void Start()
     {
-        tutorialPanel.SetActive(true);
-        Time.timeScale = 0f;
+        firstGame = PlayerPrefs.GetInt("FirstGame", 0);
+        tutorialPanel.SetActive(false);
+        Time.timeScale = 1f;
+        if (firstGame == 0)
+        {
+            PlayerPrefs.SetInt("FirstGame", 1);
+            Time.timeScale = 0f;
+            tutorialPanel.SetActive(true);
+        }
         player = FindObjectOfType<Player>();
         monster = FindObjectOfType<Monster>();
         gameOverPanel.SetActive(false);
@@ -64,9 +72,9 @@ public class GameLogic : MonoBehaviour
     }
     private void CountTime()
     {
-        timer += 1 * Time.deltaTime;
-        points = Mathf.RoundToInt(timer) + 10*coins;
-        gameScoreText.text = Mathf.RoundToInt(timer).ToString() +"m";
+        timer += Time.deltaTime;
+        points = Mathf.RoundToInt(timer + (gameSpeed)) + 10*coins;
+        gameScoreText.text = Mathf.RoundToInt(timer + (gameSpeed)).ToString() +"m";
         if(timer/10 > timeElapsed)
         {
             timeElapsed++;
@@ -116,7 +124,14 @@ public class GameLogic : MonoBehaviour
 
     public void CloseTutorial()
     {
+        if (!pausePanel.activeSelf)
+        {
+            Time.timeScale = 1f;
+        }
         tutorialPanel.SetActive(false);
-        Time.timeScale = 1f;
+    }
+    public void ShowHelp()
+    {
+        tutorialPanel.SetActive(true);
     }
 }
