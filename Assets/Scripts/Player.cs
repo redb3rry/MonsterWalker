@@ -35,16 +35,7 @@ public class Player : MonoBehaviour
     {
         touch = Input.GetTouch(0);
         playerPos = new Vector2(transform.position.x, transform.position.y);
-        //if(GetPositionX() > Screen.width / 2)
-        //{
-        //    playerPos.x = Mathf.Clamp(playerPos.x + playerSpeed, minX, maxX);
-        //}
-        //else if(GetPositionX() < Screen.width / 2)
-        //{
-        //    playerPos.x = Mathf.Clamp(playerPos.x - playerSpeed, minX, maxX);
-        //}
         playerPos.x = Mathf.Clamp(Mathf.Clamp(GetPositionX(), playerPos.x - playerSpeed, playerPos.x + playerSpeed), minX, maxX);
-
         transform.position = playerPos;
     }
     public void StopPlayer()

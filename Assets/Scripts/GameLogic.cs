@@ -87,7 +87,7 @@ public class GameLogic : MonoBehaviour
 
     public void UpdateLives(int livesLost)
     {
-        lives -= livesLost;
+        lives = Mathf.Clamp(lives-livesLost,-1,3);
         image.sprite = lifeSprites[Mathf.Clamp(lives,0,3)];
         if (lives < 0)
         {

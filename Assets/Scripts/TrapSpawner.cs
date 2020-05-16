@@ -81,7 +81,6 @@ public class TrapSpawner : MonoBehaviour
     }
     private void SpawnCoin()
     {
-
         minX = 1f;
         maxX = 8f;
         Instantiate(coin, new Vector2(GetRandomNumberInRange(minX, maxX), 8f), new Quaternion());
